@@ -17,6 +17,7 @@ public class Solution {
             ansnum += c[i];
         }
         answer = Long.parseLong(ansnum);
+        
         return answer;
     }
 }
