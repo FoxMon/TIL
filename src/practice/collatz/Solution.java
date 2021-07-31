@@ -1,18 +1,25 @@
 package practice.collatz;
 
 public class Solution {
+    public int solution(long num) {
+        int answer = 0;
 
-    public int solution(int num) {
-        long temp = (long)num;
-
-        for(int i = 0; i < 500; i++) {
-            if(temp == 1) {
-                return i;
+        while(num != 1) {
+            if(answer > 500) {
+                answer = -1;
+                break;
             }
 
-            temp = (temp % 2 == 0) ? temp / 2 : temp % 3 + 1;
+            if(num % 2 == 0) {
+                num /= 2;
+            } else {
+                num *= 3;
+                num += 1;
+            }
+
+            answer++;
         }
 
-        return -1;
+        return answer;
     }
 }
