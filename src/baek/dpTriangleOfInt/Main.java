@@ -27,7 +27,7 @@ public class Main {
     }
 
     public static int findMaxSum(int level, int col) {
-        if(level - 1 == triangleSize) {
+        if(level == triangleSize - 1) {
             return triangleDP[level][col];
         }
 
