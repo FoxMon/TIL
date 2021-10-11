@@ -1,8 +1,24 @@
-package baek.babyShark;
+package baek.babyShark02;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+
+class Find {
+    private int row;
+    private int col;
+    private int min;
+
+    public Find(int row, int col, int min) {
+        this.row = row;
+        this.col = col;
+        this.min = min;
+    }
+
+    public int getRow() { return this.row; }
+    public int getCol() { return this.col; }
+    public int getMin() { return this.min; }
+}
 
 class Node {
     private int row;
@@ -17,39 +33,23 @@ class Node {
     public int getCol() { return this.col; }
 }
 
-class Find {
-    private int row;
-    private int col;
-    private int distance;
-
-    public Find(int row, int col, int distance) {
-        this.row = row;
-        this.col = col;
-        this.distance = distance;
-    }
-
-    public int getRow() { return this.row; }
-    public int getCol() { return this.col; }
-    public int getDistance() { return this.distance; }
-}
-
 public class Main {
-    public static int[] dx = { 0, 0, -1, 1 };
-    public static int[] dy = { -1, 1, 0, 0 };
     public static int n;
+    public static int size;
     public static int babyRow;
     public static int babyCol;
-    public static int size = 2;
+    public static int[] dx = { -1, 1, 0, 0 };
+    public static int[] dy = { 0, 0, -1, 1 };
     public static int[][] map;
     public static Queue<Node> queue;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
+        size = 2;
+        babyRow = babyCol = 0;
         map = new int[n][n];
         queue = new LinkedList<>();
-        babyRow = 0;
-        babyCol = 0;
 
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
@@ -64,24 +64,24 @@ public class Main {
         }
 
         int result = 0;
-        int ate = 0;
+        int count = 0;
 
         while(true) {
-            Find value = find(bfs());
+            Find find = find(bfs());
 
-            if(value == null) {
+            if(find == null) {
                 System.out.println(result);
                 System.exit(0);
             } else {
-                babyRow = value.getRow();
-                babyCol = value.getCol();
-                result += value.getDistance();
+                babyRow = find.getRow();
+                babyCol = find.getCol();
+                result += find.getMin();
                 map[babyRow][babyCol] = 0;
-                ate++;
+                count++;
 
-                if(ate >= size) {
+                if(count >= size) {
+                    count = 0;
                     size++;
-                    ate = 0;
                 }
             }
         }
@@ -95,6 +95,7 @@ public class Main {
                 distance[i][j] = -1;
             }
         }
+
         queue.offer(new Node(babyRow, babyCol));
         distance[babyRow][babyCol] = 0;
 
@@ -102,13 +103,13 @@ public class Main {
             Node current = queue.poll();
 
             for(int i = 0; i < 4; i++) {
-                int tempRow = current.getRow() + dy[i];
-                int tempCol = current.getCol() + dx[i];
+                int currentRow = current.getRow() + dy[i];
+                int currentCol = current.getCol() + dx[i];
 
-                if(tempRow >= 0 && tempCol >= 0 && tempRow < n && tempCol < n) {
-                    if(distance[tempRow][tempCol] == -1 && map[tempRow][tempCol] <= size) {
-                        distance[tempRow][tempCol] = distance[current.getRow()][current.getCol()] + 1;
-                        queue.offer(new Node(tempRow, tempCol));
+                if(currentRow >= 0 && currentCol >= 0 && currentRow < n && currentCol < n) {
+                    if(distance[currentRow][currentCol] == -1 && map[currentRow][currentCol] <= size) {
+                        distance[currentRow][currentCol] = distance[current.getRow()][current.getCol()] + 1;
+                        queue.offer(new Node(currentRow, currentCol));
                     }
                 }
             }
