@@ -1,4 +1,4 @@
-package baek.islandCount;
+package baek.tomato;
 
 import java.util.LinkedList;
 import java.util.Queue;
