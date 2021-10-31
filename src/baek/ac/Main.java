@@ -9,14 +9,12 @@ public class Main {
     public static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
-
-
         ArrayDeque<Integer> deque;
         StringTokenizer st;
         int T = in.nextInt();
 
         while(T --> 0) {
-            String command = in.next();	
+            String command = in.next();
             int n = in.nextInt();
             st = new StringTokenizer(in.next(), "[],");
             deque = new ArrayDeque<Integer>();
@@ -29,7 +27,6 @@ public class Main {
         }
 
         System.out.println(sb);
-
     }
 
     public static void AC(String command, ArrayDeque<Integer> deque) {
