@@ -1,13 +1,12 @@
-package baekBFS.bfs01;
+package baekSearch.search01re;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
-    public static boolean[] check;
     public static int[][] computers;
-    public static int count = 0;
+    public static boolean[] check;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -22,25 +21,27 @@ public class Main {
             computers[first][last] = computers[last][first] = 1;
         }
 
-        find(1);
-        System.out.println(count);
+        System.out.println(find(1));
     }
 
-    public static void find(int start) {
+    public static int find(int start) {
         Queue<Integer> queue = new LinkedList<>();
+        int count = 0;
         check[start] = true;
-        queue.offer(start);
+        queue.offer(1);
 
         while(!queue.isEmpty()) {
-            int x = queue.poll();
+            int first = queue.poll();
 
             for(int i = 1; i < computers.length; i++) {
-                if(computers[x][i] == 1 && !check[i]) {
+                if(computers[first][i] == 1 && !check[i]) {
                     queue.offer(i);
                     check[i] = true;
                     count++;
                 }
             }
         }
+
+        return count;
     }
 }
