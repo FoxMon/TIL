@@ -15,5 +15,5 @@
 ```
 
 ## :trident: Collaboraters
-- LinedHashMap : 순서 보장
+- LinkedHashMap : 순서 보장
 - HashMap : 순서 보장 X
