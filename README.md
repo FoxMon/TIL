@@ -12,8 +12,13 @@
 
 ```
 천천히 공부하자...
+입력형태 주의...
 ```
 
-## :trident: Collaboraters
+## :trident: 주의사항
 - LinkedHashMap : 순서 보장
 - HashMap : 순서 보장 X
+- 문자열 끝 : scanner.hasNextLine() 으로 검사
+- 공백문자 split : \\s"" or " " ( 버퍼 문제 발생 시 BufferedReader 조립 )
+- IOException -> BufferedRedaer bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+- String[] input = bufferedReader.readLine().split(" ");
