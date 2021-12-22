@@ -22,3 +22,4 @@
 - 공백문자 split : \\s"" or " " ( 버퍼 문제 발생 시 BufferedReader 조립 )
 - IOException -> BufferedRedaer bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 - String[] input = bufferedReader.readLine().split(" ");
+- 탐색 시 visited를 boolean이 아닌 int로도 활용이 가능
