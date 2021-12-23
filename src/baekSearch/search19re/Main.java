@@ -61,6 +61,8 @@ public class Main {
             int currentVertex = current.getVertex();
 
             if(!visited[currentVertex]) {
+                visited[currentVertex] = true;
+
                 for(Node node : nodes[currentVertex]) {
                     if(costs[node.getVertex()] > node.getCost() + costs[currentVertex]) {
                         costs[node.getVertex()] = node.getCost() + costs[currentVertex];
