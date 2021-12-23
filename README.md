@@ -23,3 +23,4 @@
 - IOException -> BufferedRedaer bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 - String[] input = bufferedReader.readLine().split(" ");
 - 탐색 시 visited를 boolean이 아닌 int로도 활용이 가능
+- 다익스트라
