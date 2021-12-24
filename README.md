@@ -1,12 +1,12 @@
 # :open_book: 알고리즘
 ## Java
-
 - Sort
 - BinarySearch
 - BackTracking
 - String
 - Simulation
 - DFS / BFS
+- Dijkstra
 
 ## :mag_right: Programmers, BaekJoon
 
