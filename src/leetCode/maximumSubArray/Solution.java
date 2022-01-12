@@ -8,10 +8,9 @@ public class Solution {
 
         int sum = 0;
         int max = Integer.MIN_VALUE;
-        int maxSum = 0;
+        int answer = 0;
 
-        for(int i = 0; i < nums.length; i++) {
-            int num = nums[i];
+        for(int num : nums) {
             if(max < num) {
                 max = num;
             }
@@ -20,16 +19,13 @@ public class Solution {
                 sum = 0;
             } else {
                 sum += num;
-                if(maxSum < sum) {
-                    maxSum = sum;
-                }
+                answer = Math.max(answer, sum);
             }
         }
 
-        if(maxSum == 0) {
+        if(answer == 0) {
             return max;
         }
-
-        return maxSum;
+        return answer;
     }
 }
