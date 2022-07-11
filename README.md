@@ -3,6 +3,7 @@
 ## Algorithm
 - Math
 - Sort
+- Data structure
 - BinarySearch
 - BackTracking
 - String
