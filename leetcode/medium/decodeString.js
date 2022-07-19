@@ -19,4 +19,3 @@ var decodeString = function (s) {
     }
     return arr.join("")
 }
-console.log(decodeString("100[leetcode]"))
